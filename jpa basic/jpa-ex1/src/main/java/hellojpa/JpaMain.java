@@ -23,14 +23,21 @@ public class JpaMain {
 //            findMember.setName("HelloJPA"); // jpa가 관리되고 setter를 하면 데이터베이스의 데이터 수정이된다.
 
             // jpql은 객체를 대상으로 하는 객체지향 쿼리임. - 데이터베이스대상이아님. - DB방언에 맞춰서 알아서
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(5)
-                    .setMaxResults(10)
-                    .getResultList();
+//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
+//                    .setFirstResult(5)
+//                    .setMaxResults(10)
+//                    .getResultList();
+//
+//            for (Member member : result) {
+//                System.out.println("member.getName() = " + member.getName());
+//            }
+            Member member = new Member();
+            member.setId(100L);
+            member.setName("JS");
 
-            for (Member member : result) {
-                System.out.println("member.getName() = " + member.getName());
-            }
+            System.out.println("=====begin=====");
+            em.persist(member);
+            System.out.println("=====finish====");
 
             tx.commit(); // 트랜잭션 - 커밋(안되면 롤백)
         }catch (Exception e){
