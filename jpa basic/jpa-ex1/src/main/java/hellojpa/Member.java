@@ -14,6 +14,15 @@ public class Member {
 //    @Column(name = "username") - 컬럼의 이름도 지정해줄수있음음
    private String name;
 
+   public Member(){
+
+   }
+
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }

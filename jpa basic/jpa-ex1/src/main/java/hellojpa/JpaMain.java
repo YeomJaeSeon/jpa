@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JpaMain {
@@ -18,28 +19,10 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            // em을 마치 자바 컬렉션처럼 생각( 내 겍체를 저장해주는 곳)
-//            Member findMember = em.find(Member.class, 1L); // jpa를 통해서 객체를 가져오면
-//            findMember.setName("HelloJPA"); // jpa가 관리되고 setter를 하면 데이터베이스의 데이터 수정이된다.
-
-            // jpql은 객체를 대상으로 하는 객체지향 쿼리임. - 데이터베이스대상이아님. - DB방언에 맞춰서 알아서
-//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-//                    .setFirstResult(5)
-//                    .setMaxResults(10)
-//                    .getResultList();
-//
-//            for (Member member : result) {
-//                System.out.println("member.getName() = " + member.getName());
-//            }
-            Member member = new Member();
-            member.setId(100L);
-            member.setName("JS");
-
-            System.out.println("=====begin=====");
-            em.persist(member);
-            System.out.println("=====finish====");
-
-            tx.commit(); // 트랜잭션 - 커밋(안되면 롤백)
+            Member findMember = em.find(Member.class, 63L);
+            em.remove(findMember);
+            System.out.println("=====================");
+            tx.commit();
         }catch (Exception e){
             tx.rollback();
         }finally {
