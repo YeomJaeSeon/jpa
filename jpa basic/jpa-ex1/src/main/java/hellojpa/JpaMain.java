@@ -1,9 +1,6 @@
 package hellojpa;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,16 +16,16 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            Member findMember = em.find(Member.class, 63L);
-            em.remove(findMember);
-            System.out.println("=====================");
+            em.persist(new Member(5L, "memberD"));
+            em.flush();
+            System.out.println("=========");
+
             tx.commit();
         }catch (Exception e){
             tx.rollback();
         }finally {
             em.close(); // entitymanager 사용다하면 꼭 닫아줘야함.
         }
-
         emf.close();
     }
 }
