@@ -1,8 +1,6 @@
 package hellojpa;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -16,12 +14,7 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            Member member = em.find(Member.class, 1L);
-            member.setName("POP");
-
-            em.close();
-            Member member1 = em.find(Member.class, 1L);
-
+            em.persist(new Member(2L, "second_user"));
             System.out.println("=================");
             tx.commit();
         }catch (Exception e){

@@ -1,11 +1,11 @@
 package hellojpa;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity // jpa가 로딩될대 jpa를 사용하는 녀석이구나를 인식하게됨
-//@Table(name="USER") // 테이블이름이 USER이면 USER에 쿼리가나감
+@Entity
+@Table(name = "Team")
 public class Member {
 
     @Id // jpa에게 pk가 뭔지 알려줘야함.
