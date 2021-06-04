@@ -16,10 +16,13 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            em.persist(new Member(5L, "memberD"));
-            em.flush();
-            System.out.println("=========");
+            Member member = em.find(Member.class, 1L);
+            member.setName("POP");
 
+            em.close();
+            Member member1 = em.find(Member.class, 1L);
+
+            System.out.println("=================");
             tx.commit();
         }catch (Exception e){
             tx.rollback();
