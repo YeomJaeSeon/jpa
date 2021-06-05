@@ -1,6 +1,7 @@
 package hellojpa;
 
 import javax.persistence.*;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -14,11 +15,11 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            em.persist(new Member(2L, "second_user"));
-            System.out.println("=================");
+
             tx.commit();
         }catch (Exception e){
             tx.rollback();
+
         }finally {
             em.close(); // entitymanager 사용다하면 꼭 닫아줘야함.
         }
