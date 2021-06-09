@@ -22,12 +22,26 @@ public class JpaMain {
         tx.begin();// 트랜잭션 시작
 
         try{
-            List<Member> resultList = em.createQuery("select m from Member as m", Member.class).getResultList();
+            Team team = new Team();
+            team.setName("삼성 라이온즈");
+            em.persist(team);
 
-            for (Member member : resultList) {
-                System.out.println("member.getName() = " + member.getName());
-            }
+            Member member = new Member();
+            member.setUseName("선동렬");
+            member.setTeam(team);
+            em.persist(member);
 
+            em.flush();
+            em.clear();
+
+            //조회
+            Member findMember = em.find(Member.class, 2L);
+            Team findTeam = findMember.getTeam();
+
+            System.out.println(findTeam.getName());
+
+
+            System.out.println("=================");
             tx.commit();
         }catch (Exception e){
             tx.rollback();

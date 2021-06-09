@@ -14,27 +14,23 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            Member member1 = new Member();
-            member1.setUsername("A");
+            //저장
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
 
-            Member member2 = new Member();
-            member2.setUsername("B");
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setTeam(team);
+            em.persist(member);
 
-            Member member3 = new Member();
-            member3.setUsername("C");
+            em.flush();
+            em.clear();
 
-            Member member4 = new Member();
-            member4.setUsername("D");
-
-            em.persist(member1);
-            em.persist(member2);
-            em.persist(member3);
-            em.persist(member4);
-
-            System.out.println("member1.getId() = " + member1.getId());
-            System.out.println("member2.getId() = " + member2.getId());
-            System.out.println("member3.getId() = " + member3.getId());
-            System.out.println("member4.getId() = " + member4.getId());
+            //조회
+            Member findMember = em.find(Member.class, member.getId());
+            Team findTeam = findMember.getTeam();
+            System.out.println("findTeam.getName() = " + findTeam.getName());
 
             System.out.println("==================");
             tx.commit();

@@ -1,21 +1,21 @@
 package hellojpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Member {
+public class Team {
 
-    @Id
+    @Id @GeneratedValue
+    @Column(name = "TEAM_ID")
     private Long id;
+
     private String name;
 
-    public Member(){
+    public Team(){
 
-    }
-    public Member(Long id, String name){
-        this.id = id;
-        this.name = name;
     }
 
     public Long getId() {

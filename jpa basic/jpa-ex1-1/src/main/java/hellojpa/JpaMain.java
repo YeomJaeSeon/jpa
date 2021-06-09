@@ -16,14 +16,13 @@ public class JpaMain {
 
         tx.begin();
         try{
-            // jpql은 객체상대로 sql
-            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-                    .getResultList();
+            em.persist(new Member(4L, "ddd"));
 
-            for (Member member : result) {
-                System.out.println("member.getName() = " + member.getName());
-            }
+            em.clear();
 
+            em.persist(new Member(4L, "DdDdDd"));
+
+            System.out.println("=============");
             tx.commit();
         }catch (Exception e){
             tx.rollback();

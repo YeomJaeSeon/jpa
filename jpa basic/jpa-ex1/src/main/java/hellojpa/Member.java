@@ -4,17 +4,26 @@ import javax.persistence.*;
 
 @Entity
 @SequenceGenerator(
-        name = "MEMBER_SEQ_GENERATOR",
-        sequenceName = "MEMBER_SEQ", //매핑할 데이터베이스 시퀀스 이름
-        initialValue = 1, allocationSize = 50)
+        name = "MEMBER_SEQUENCE_NAME",
+        sequenceName = "MEMBER_SEQ",
+        initialValue = 1
+)
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,
-    generator = "MEMBER_SEQ_GENERATOR")
+    generator = "MEMBER_SEQUENCE_NAME")
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "USERNAME")
     private String username;
+
+    //@Column(name = "TEAM_ID")
+    //private Long teamId;
+
+    @ManyToOne // Member : N, Team : 1
+    @JoinColumn(name = "TEAM_ID") // 객체 참조와 DB의 외래키 매핑핑
+   private Team team;
 
     public Long getId() {
         return id;
@@ -32,7 +41,13 @@ public class Member {
         this.username = username;
     }
 
-    public Member() {
-   }
+    public Team getTeam() {
+        return team;
+    }
 
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public Member(){ }
 }
