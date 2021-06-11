@@ -5,24 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@SequenceGenerator(
-        name = "TEAM_SEQ_NAME",
-        sequenceName = "TEAM_SEQ"
-)
 public class Team {
 
-    @Id @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "TEAM_SEQ_NAME"
-    )
+    @Id @GeneratedValue
     @Column(name = "TEAM_ID")
     private Long id;
 
     private String name;
 
-    // Team : Member = N : 1 (다대일)
     @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
+
+    public Team(){
+
+    }
 
     public List<Member> getMembers() {
         return members;

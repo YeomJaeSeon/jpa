@@ -1,6 +1,7 @@
 package hellojpa;
 
 import javax.persistence.*;
+import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -29,10 +30,13 @@ public class JpaMain {
 
             //조회
             Member findMember = em.find(Member.class, member.getId());
-            Team findTeam = findMember.getTeam();
-            System.out.println("findTeam.getName() = " + findTeam.getName());
+            List<Member> members = findMember.getTeam().getMembers(); // 팀에 속한 멤버들
 
-            System.out.println("==================");
+            for (Member m : members) {
+                System.out.println("m = " + m.getUsername());
+            }
+
+            System.out.println("//== commit ==//");
             tx.commit();
         }catch (Exception e){
             tx.rollback();

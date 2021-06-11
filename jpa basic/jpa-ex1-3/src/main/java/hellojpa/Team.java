@@ -1,20 +1,23 @@
 package hellojpa;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
+@SequenceGenerator(
+        name = "TEAM_SEQ_GENERATOR",
+        sequenceName = "TEAM_SEQ",
+        initialValue = 1,
+        allocationSize = 1
+)
 public class Team {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,
+    generator = "TEAM_SEQ_GENERATOR")
     @Column(name = "TEAM_ID")
     private Long id;
+
+    @Column(name = "NAME")
     private String name;
-
-    @OneToMany(mappedBy = "team") // 나의 반대편 사이드에 걸려있는 것..
-    private List<Member> members = new ArrayList<>();
-
 
     public Team(){
 
@@ -34,13 +37,5 @@ public class Team {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Member> members) {
-        this.members = members;
     }
 }

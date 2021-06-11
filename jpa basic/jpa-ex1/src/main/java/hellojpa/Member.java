@@ -5,8 +5,7 @@ import javax.persistence.*;
 @Entity
 @SequenceGenerator(
         name = "MEMBER_SEQUENCE_NAME",
-        sequenceName = "MEMBER_SEQ",
-        initialValue = 1
+        sequenceName = "MEMBER_SEQ"
 )
 public class Member {
 
@@ -18,12 +17,9 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-    //@Column(name = "TEAM_ID")
-    //private Long teamId;
-
     @ManyToOne // Member : N, Team : 1
     @JoinColumn(name = "TEAM_ID") // 객체 참조와 DB의 외래키 매핑핑
-   private Team team;
+    private Team team;
 
     public Long getId() {
         return id;

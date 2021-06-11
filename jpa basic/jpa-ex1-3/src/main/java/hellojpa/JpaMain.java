@@ -4,7 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -16,12 +15,27 @@ public class JpaMain {
 
         tx.begin();
         try{
-            List<Member> resultList = em.createQuery("select m from Member as m ORDER BY m.name DESC", Member.class)
-                    .getResultList();
-            for (Member member : resultList) {
-                System.out.println("member = " + member.getName());
-            }
+            //등록
+            Team team = new Team();
+            team.setName("Manchester United");
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("Ronaldo");
+            member.setTeam(team); // 단방향 연관관계 - 참조를 저장 -> 참조와 외래키 매핑함.
+            em.persist(member);
+
+            em.flush();
+            em.clear();
+
+            // 조회
+            Member findMember = em.find(Member.class, 1L);
+            Team findTeam = findMember.getTeam();
+            System.out.println(findTeam.getName());
+
+            System.out.println("//==commit==//");
             tx.commit();
+
         }catch (Exception e){
             tx.rollback();
         }finally {
