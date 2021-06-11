@@ -19,13 +19,14 @@ public class Team {
     public Team(){
 
     }
-
-    public List<Member> getMembers() {
-        return members;
+    public void addMember(Member member){
+        members.add(member);
+        member.setTeam(this);
     }
 
-    public void setMembers(List<Member> members) {
-        this.members = members;
+    @Override
+    public String toString() {
+        return "members : " + members;
     }
 
     public Long getId() {
@@ -42,5 +43,13 @@ public class Team {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Member> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<Member> members) {
+        this.members = members;
     }
 }

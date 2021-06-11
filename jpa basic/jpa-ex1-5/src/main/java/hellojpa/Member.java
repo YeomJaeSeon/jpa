@@ -20,16 +20,9 @@ public class Member {
 
     }
 
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
-    public Member(String name){
-        this.name = name;
+    @Override
+    public String toString() {
+        return "team : " + team;
     }
 
     public Long getId() {
@@ -46,5 +39,13 @@ public class Member {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }
