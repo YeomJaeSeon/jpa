@@ -1,22 +1,15 @@
-package jpabook.jpashop.domain;
+package jpashop.jpabook.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "ORDERS")
-@SequenceGenerator(
-        name = "ORDER_SEQ_GENERATOR",
-        sequenceName = "ORDER_SEQ",
-        initialValue = 1
-)
 public class Order {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,
-    generator = "ORDER_SEQ_GENERATOR")
+    @Id @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
 
@@ -27,15 +20,17 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    private LocalDateTime orderDate;
+    private LocalDate Date;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    //==연관관계 편의 메서드, 주인과 그반대편 값도설정==//
-    public void addOrderItem(OrderItem orderItem) {
-        orderItems.add(orderItem);
-        orderItem.setOrder(this);
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Member getMember() {
@@ -46,20 +41,20 @@ public class Order {
         this.member = member;
     }
 
-    public Long getId() {
-        return id;
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 
-    public LocalDateTime getOrderDate() {
-        return orderDate;
+    public LocalDate getDate() {
+        return Date;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
+    public void setDate(LocalDate date) {
+        Date = date;
     }
 
     public OrderStatus getStatus() {
@@ -69,5 +64,4 @@ public class Order {
     public void setStatus(OrderStatus status) {
         this.status = status;
     }
-
 }

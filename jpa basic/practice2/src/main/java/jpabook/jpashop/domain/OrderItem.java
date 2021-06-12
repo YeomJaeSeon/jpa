@@ -3,15 +3,10 @@ package jpabook.jpashop.domain;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(
-        name = "ORDERITEM_SEQ_GENERATOR",
-        sequenceName = "ORDERITEM_SEQ",
-        initialValue = 1
-)
+@Table(name = "ORDER_ITEM")
 public class OrderItem {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,
-    generator = "ORDERITEM_SEQ_GENERATOR")
+    @Id @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")
     private Long id;
 
@@ -19,8 +14,6 @@ public class OrderItem {
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 
-    // 단방향 매핑부터 설정해라 - 주인관계에서 참조와 외래키 매핑부터해라.
-    // 양방향은 개발할때 필요하면 사용.
     @ManyToOne
     @JoinColumn(name = "ITEM_ID")
     private Item item;
@@ -28,6 +21,8 @@ public class OrderItem {
     private int orderPrice;
 
     private int count;
+
+    public OrderItem(){}
 
     public Long getId() {
         return id;

@@ -1,5 +1,6 @@
 package jpabook.jpashop;
 
+import jpabook.jpashop.domain.Item;
 import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderItem;
@@ -12,13 +13,10 @@ import javax.persistence.Persistence;
 public class JpaMain {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
-        // emf는 어플로딩시점에 딱하나만 만들어놔야함.
-
         EntityManager em = emf.createEntityManager();
-        // db커넥션되고 쿼리날리는등 하나의 트랜잭션 은 entitymanager에 의해서 처리되어야함
 
-        EntityTransaction tx = em.getTransaction(); // jpa는 무조건 트랜잭션 내에서 처리가 되어야함
-        tx.begin(); // db트랜잭션 시작
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
 
         try{
             Member member = new Member();
@@ -26,20 +24,23 @@ public class JpaMain {
             em.persist(member);
 
             Order order = new Order();
-            order.setMember(member);
-            member.getOrders().add(order);
+            member.addOrder(order);
             em.persist(order);
 
+            Member findMember = em.find(Member.class, member.getId());
+            for (Order o : findMember.getOrders()) {
+                System.out.println(o.getMember().getName());
+            }
 
 
+            System.out.println("=========");
             tx.commit();
         }catch (Exception e){
-            e.printStackTrace();
             tx.rollback();
-
         }finally {
-            em.close(); // entitymanager 사용다하면 꼭 닫아줘야함.
+            em.close();
         }
         emf.close();
+
     }
 }
