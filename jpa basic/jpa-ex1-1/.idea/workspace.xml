@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aedb257c-d20c-43c8-a1d0-e74edb2133e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Team.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-2/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-2/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-2/src/main/java/hellojpa/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-2/src/main/java/hellojpa/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-2/target/classes/hellojpa/JpaMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-2/target/classes/hellojpa/JpaMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-2/target/classes/hellojpa/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-2/target/classes/hellojpa/Member.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-2/target/classes/hellojpa/Team.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-2/target/classes/hellojpa/Team.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-3/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-3/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-3/src/main/java/hellojpa/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-3/src/main/java/hellojpa/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-3/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-3/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-3/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-3/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-3/target/classes/hellojpa/JpaMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-3/target/classes/hellojpa/JpaMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-3/target/classes/hellojpa/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-3/target/classes/hellojpa/Member.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/JpaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hellojpa/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jpa-ex1-5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practice3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practice3/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +30,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1tIWb7ttV1ifAUSPC43F9a7aq5u" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>

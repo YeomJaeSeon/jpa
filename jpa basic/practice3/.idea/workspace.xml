@@ -4,59 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce776b7e-ab80-47d4-9c2c-59b2d07d3ec3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../practice2/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/practice2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/src/main/java/jpabook/jpashop/JpaMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/src/main/java/jpabook/jpashop/domain/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/src/main/java/jpabook/jpashop/domain/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/src/main/java/jpabook/jpashop/domain/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/src/main/java/jpabook/jpashop/domain/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/src/main/java/jpabook/jpashop/domain/OrderStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/target/classes/jpabook/jpashop/JpaMain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/target/classes/jpabook/jpashop/domain/Item.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/target/classes/jpabook/jpashop/domain/Member.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/target/classes/jpabook/jpashop/domain/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/target/classes/jpabook/jpashop/domain/OrderItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../practice2/target/classes/jpabook/jpashop/domain/OrderStatus.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/practice3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/JpaMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/OrderStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/JpaMain.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Item.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Member.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/OrderItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/OrderStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jpa-ex1-5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jpa-ex1-5/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice/src/main/java/jpabook/jpashop/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/src/main/java/jpabook/jpashop/JpaMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice/src/main/java/jpabook/jpashop/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/src/main/java/jpabook/jpashop/domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice/src/main/java/jpabook/jpashop/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/src/main/java/jpabook/jpashop/domain/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice/src/main/java/jpabook/jpashop/domain/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/src/main/java/jpabook/jpashop/domain/OrderItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice/target/classes/jpabook/jpashop/JpaMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/target/classes/jpabook/jpashop/JpaMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice/target/classes/jpabook/jpashop/domain/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/target/classes/jpabook/jpashop/domain/Member.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice/target/classes/jpabook/jpashop/domain/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/target/classes/jpabook/jpashop/domain/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../practice/target/classes/jpabook/jpashop/domain/OrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/../practice/target/classes/jpabook/jpashop/domain/OrderItem.class" afterDir="false" />
-    </list>
+    <list default="true" id="ce776b7e-ab80-47d4-9c2c-59b2d07d3ec3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

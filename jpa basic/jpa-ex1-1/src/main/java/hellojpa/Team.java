@@ -5,25 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@SequenceGenerator(
-        name = "TEAM_SEQ_NAME",
-        sequenceName = "TEAM_SEQ"
-)
 public class Team {
 
-    @Id @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "TEAM_SEQ_NAME"
-    )
+    @Id @GeneratedValue
     @Column(name = "TEAM_ID")
     private Long id;
 
     private String name;
 
-    // Team : Member = N : 1 (다대일) - 주인 반대편(가짜 매핑)
     @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
-    // DB에 영향 X, 단순히조회만가능
+
+    //==team - member  편의메서드 ==//
+    public void addMember(Member member){
+        member.setTeam(this);
+        members.add(member);
+    }
+
+    public Team(){}
 
     public List<Member> getMembers() {
         return members;
