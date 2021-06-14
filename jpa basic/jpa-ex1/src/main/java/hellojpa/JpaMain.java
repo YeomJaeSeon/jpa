@@ -15,26 +15,25 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            //저장
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
 
             Member member = new Member();
-            member.setUsername("member1");
-            member.setTeam(team);
+            member.setUsername("차두리");
             em.persist(member);
+
+
+            Team team = new Team();
+            team.setName("리버풀");
+            // 이쪽
+            team.getMembers().add(member); // 외래키변경이 일어남.
+            em.persist(team);
 
             em.flush();
             em.clear();
 
-            //조회
             Member findMember = em.find(Member.class, member.getId());
-            List<Member> members = findMember.getTeam().getMembers(); // 팀에 속한 멤버들
-
-            for (Member m : members) {
-                System.out.println("m = " + m.getUsername());
-            }
+            Team findTeam = findMember.getTeam();
+            System.out.println(findTeam.getName()); // insertable =false, updatable = false로 읽기전용
+            // 주인 반대편 가짜 매핑역활을 제대로한다. @JoinColumn으로
 
             System.out.println("//== commit ==//");
             tx.commit();

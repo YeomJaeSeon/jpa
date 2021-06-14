@@ -17,9 +17,18 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToOne // Member : N, Team : 1
-    @JoinColumn(name = "TEAM_ID") // 객체 참조와 DB의 외래키 매핑핑
+
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false)
     private Team team;
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 
     public Long getId() {
         return id;
@@ -37,13 +46,6 @@ public class Member {
         this.username = username;
     }
 
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
     public Member(){ }
+
 }

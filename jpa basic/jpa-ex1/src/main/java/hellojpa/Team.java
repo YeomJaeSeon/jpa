@@ -20,8 +20,8 @@ public class Team {
 
     private String name;
 
-    // Team : Member = N : 1 (다대일) - 주인 반대편(가짜 매핑)
-    @OneToMany(mappedBy = "team")
+    @OneToMany
+    @JoinColumn(name = "TEAM_ID")
     private List<Member> members = new ArrayList<>();
     // DB에 영향 X, 단순히조회만가능
 
