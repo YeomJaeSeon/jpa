@@ -20,10 +20,9 @@ public class Team {
 
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "TEAM_ID")
+    @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
-    // DB에 영향 X, 단순히조회만가능
+     //DB에 영향 X, 단순히조회만가능
 
     public List<Member> getMembers() {
         return members;

@@ -2,6 +2,7 @@ package hellojpa;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -15,25 +16,40 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
+            Locker locker = new Locker();
+            locker.setName("locker 1");
+            em.persist(locker);
 
-            Member member = new Member();
-            member.setUsername("차두리");
-            em.persist(member);
-
+            Locker locker1 = new Locker();
+            locker1.setName("locker 2");
+            em.persist(locker1);
 
             Team team = new Team();
-            team.setName("리버풀");
-            // 이쪽
-            team.getMembers().add(member); // 외래키변경이 일어남.
+            team.setName("해태 타이거즈");
             em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("박지성");
+            member.setTeam(team);
+            member.setLocker(locker);//연관관계 주인에 값넣음
+            em.persist(member);
+
+            Member member1 = new Member();
+            member1.setUsername("이영표");
+            member1.setTeam(team);
+            member1.setLocker(locker1);
+            em.persist(member1);
 
             em.flush();
             em.clear();
 
             Member findMember = em.find(Member.class, member.getId());
-            Team findTeam = findMember.getTeam();
-            System.out.println(findTeam.getName()); // insertable =false, updatable = false로 읽기전용
-            // 주인 반대편 가짜 매핑역활을 제대로한다. @JoinColumn으로
+            System.out.println("locker name : " + findMember.getLocker().getName());
+            Locker findLocker = em.find(Locker.class, locker.getId());
+            System.out.println("member name : " + findLocker.getMember().getUsername());
+            Locker findLocker2 = em.find(Locker.class, locker1.getId());
+            System.out.println("member1 name : " + findLocker2.getMember().getUsername());
+
 
             System.out.println("//== commit ==//");
             tx.commit();
