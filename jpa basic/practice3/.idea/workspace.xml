@@ -4,7 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce776b7e-ab80-47d4-9c2c-59b2d07d3ec3" name="Default Changelist" comment="" />
+    <list default="true" id="ce776b7e-ab80-47d4-9c2c-59b2d07d3ec3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../practice4/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/practice4.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/java/jpashop/jpabook/JpaMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/java/jpashop/jpabook/domain/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/java/jpashop/jpabook/domain/Delivery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/java/jpashop/jpabook/domain/DeliveryStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/java/jpashop/jpabook/domain/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/java/jpashop/jpabook/domain/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/java/jpashop/jpabook/domain/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/java/jpashop/jpabook/domain/OrderItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/java/jpashop/jpabook/domain/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/JpaMain.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/domain/Category.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/domain/CategoryItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/domain/Delivery.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/domain/DeliveryStatus.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/domain/Item.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/domain/Member.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/domain/Order.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/domain/OrderItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice4/target/classes/jpashop/jpabook/domain/OrderStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,5 +111,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
