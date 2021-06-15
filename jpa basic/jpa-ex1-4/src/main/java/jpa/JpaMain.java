@@ -1,10 +1,11 @@
 package jpa;
 
+import jpa.item.Movie;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -15,16 +16,19 @@ public class JpaMain {
 
         tx.begin();
         try{
-            Member member = new Member(1L, "aaa");
-            Member member1 = new Member(2L, "bbb");
-            Member member2 = new Member(3L, "ccc");
-            em.persist(member);
-            em.persist(member1);
-            em.persist(member2);
+            Movie movie = new Movie();
+            movie.setName("사랑이 죄인가요");
+            movie.setActor("박정훈");
+            movie.setDirector("조정래");
+            movie.setPrice(2000);
+            em.persist(movie);
 
-            // jpql쿼리 실행하면 자동 플러시..!(플러시 : 영속성 컨텍스트 변경사항 DB에 반영)
-            List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
-            members.forEach(i -> System.out.println(i.getName()));
+            em.flush();
+            em.clear();
+
+            Movie findMovie = em.find(Movie.class, movie.getId());
+            System.out.println("findMovide : " + findMovie.getName());
+
 
             System.out.println("===============");
             tx.commit();

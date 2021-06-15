@@ -16,40 +16,27 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            Locker locker = new Locker();
-            locker.setName("locker 1");
-            em.persist(locker);
 
-            Locker locker1 = new Locker();
-            locker1.setName("locker 2");
-            em.persist(locker1);
+            Movie movie = new Movie();
+            movie.setDirector("조성래");
+            movie.setActor("김태희");
+            movie.setName("바람과 함께 사라지다..");
+            movie.setPrice(10000);
+            em.persist(movie);
 
-            Team team = new Team();
-            team.setName("해태 타이거즈");
-            em.persist(team);
+            Book book = new Book();
+            book.setIsbn("112123-3");
+            book.setName("전쟁과평화");
+            book.setAuthor("히가시노 염이고");
+            book.setPrice(15000);
+            em.persist(book);
 
-            Member member = new Member();
-            member.setUsername("박지성");
-            member.setTeam(team);
-            member.setLocker(locker);//연관관계 주인에 값넣음
-            em.persist(member);
-
-            Member member1 = new Member();
-            member1.setUsername("이영표");
-            member1.setTeam(team);
-            member1.setLocker(locker1);
-            em.persist(member1);
 
             em.flush();
             em.clear();
 
-            Member findMember = em.find(Member.class, member.getId());
-            System.out.println("locker name : " + findMember.getLocker().getName());
-            Locker findLocker = em.find(Locker.class, locker.getId());
-            System.out.println("member name : " + findLocker.getMember().getUsername());
-            Locker findLocker2 = em.find(Locker.class, locker1.getId());
-            System.out.println("member1 name : " + findLocker2.getMember().getUsername());
-
+            Movie findMovie = em.find(Movie.class, movie.getId());
+            System.out.println("findMovie = " + findMovie.getName());
 
             System.out.println("//== commit ==//");
             tx.commit();
