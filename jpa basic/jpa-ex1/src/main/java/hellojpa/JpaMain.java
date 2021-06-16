@@ -1,6 +1,9 @@
 package hellojpa;
 
+import hellojpa.base.BaseTable;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 
@@ -16,27 +19,15 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
+            Member member = new Member();
+            member.setCreatedBy("kim");
+            member.setCreatedTime(LocalDateTime.now());
+            member.setUsername("user1");
 
-            Movie movie = new Movie();
-            movie.setDirector("조성래");
-            movie.setActor("김태희");
-            movie.setName("바람과 함께 사라지다..");
-            movie.setPrice(10000);
-            em.persist(movie);
-
-            Book book = new Book();
-            book.setIsbn("112123-3");
-            book.setName("전쟁과평화");
-            book.setAuthor("히가시노 염이고");
-            book.setPrice(15000);
-            em.persist(book);
-
+            em.persist(member);
 
             em.flush();
             em.clear();
-
-            Movie findMovie = em.find(Movie.class, movie.getId());
-            System.out.println("findMovie = " + findMovie.getName());
 
             System.out.println("//== commit ==//");
             tx.commit();

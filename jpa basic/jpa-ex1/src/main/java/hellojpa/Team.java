@@ -1,6 +1,9 @@
 package hellojpa;
 
+import hellojpa.base.BaseTable;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +12,7 @@ import java.util.List;
         name = "TEAM_SEQ_NAME",
         sequenceName = "TEAM_SEQ"
 )
-public class Team {
+public class Team extends BaseTable {
 
     @Id @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -23,6 +26,7 @@ public class Team {
     @OneToMany(mappedBy = "team")
     private List<Member> members = new ArrayList<>();
      //DB에 영향 X, 단순히조회만가능
+
 
     public List<Member> getMembers() {
         return members;

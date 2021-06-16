@@ -1,6 +1,9 @@
 package hellojpa;
 
+import hellojpa.base.BaseTable;
+
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
@@ -10,7 +13,7 @@ import java.util.concurrent.locks.Lock;
         name = "MEMBER_SEQUENCE_NAME",
         sequenceName = "MEMBER_SEQ"
 )
-public class Member {
+public class Member extends BaseTable {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,
     generator = "MEMBER_SEQUENCE_NAME")
