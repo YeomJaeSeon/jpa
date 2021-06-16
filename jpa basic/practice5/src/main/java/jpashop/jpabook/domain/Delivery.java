@@ -1,11 +1,11 @@
 package jpashop.jpabook.domain;
 
-import jpashop.jpabook.domain.base.Base;
+import jpashop.jpabook.domain.base.BaseEntity;
 
 import javax.persistence.*;
 
 @Entity
-public class Delivery extends Base {
+public class Delivery extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "DELIVERY_ID")
@@ -16,12 +16,20 @@ public class Delivery extends Base {
 
     private String city;
 
-    private String street;
-
     private String zipcode;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
+
+    public Delivery(){}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Order getOrder() {
         return order;
@@ -39,14 +47,6 @@ public class Delivery extends Base {
         this.city = city;
     }
 
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
     public String getZipcode() {
         return zipcode;
     }
@@ -61,13 +61,5 @@ public class Delivery extends Base {
 
     public void setStatus(DeliveryStatus status) {
         this.status = status;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

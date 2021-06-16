@@ -5,7 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bad81a04-8084-45a8-b511-8c667a4aa138" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/base/Base.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/item/Album.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/item/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/item/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/item/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/practice5.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/JpaMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/Delivery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/DeliveryStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/OrderItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/OrderStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/base/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/item/Album.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/item/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/item/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../practice5/src/main/resources/META-INF/persistence.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/JpaMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/JpaMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Delivery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Delivery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/../practice5/src/main/java/jpashop/jpabook/domain/item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpashop/jpabook/domain/OrderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jpashop/jpabook/JpaMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/JpaMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Delivery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Delivery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Member.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/OrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jpashop/jpabook/domain/OrderItem.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,5 +129,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

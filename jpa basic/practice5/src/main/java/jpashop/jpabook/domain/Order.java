@@ -1,6 +1,6 @@
 package jpashop.jpabook.domain;
 
-import jpashop.jpabook.domain.base.Base;
+import jpashop.jpabook.domain.base.BaseEntity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -9,7 +9,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "ORDERS")
-public class Order extends Base {
+// 테이블이름을 ORDER로하면 예약어 ORDER과 충돌..
+public class Order extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
@@ -20,21 +21,18 @@ public class Order extends Base {
     private Member member;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems = new ArrayList<>();
+    List<OrderItem> orderItems = new ArrayList<>();
 
     @OneToOne
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
 
+    private LocalDate Date;
+
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    private LocalDate orderDate;
-
-    public void addDelivery(Delivery delivery){
-        setDelivery(delivery);
-        delivery.setOrder(this);
-    }
+    public Order(){}
 
     public Long getId() {
         return id;
@@ -52,14 +50,6 @@ public class Order extends Base {
         this.member = member;
     }
 
-    public List<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(List<OrderItem> orderItems) {
-        this.orderItems = orderItems;
-    }
-
     public Delivery getDelivery() {
         return delivery;
     }
@@ -68,19 +58,19 @@ public class Order extends Base {
         this.delivery = delivery;
     }
 
+    public LocalDate getDate() {
+        return Date;
+    }
+
+    public void setDate(LocalDate date) {
+        Date = date;
+    }
+
     public OrderStatus getStatus() {
         return status;
     }
 
     public void setStatus(OrderStatus status) {
         this.status = status;
-    }
-
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
     }
 }

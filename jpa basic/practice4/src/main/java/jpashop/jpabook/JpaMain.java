@@ -1,14 +1,14 @@
 package jpashop.jpabook;
 
-import jpashop.jpabook.domain.Delivery;
-import jpashop.jpabook.domain.DeliveryStatus;
-import jpashop.jpabook.domain.Order;
-import jpashop.jpabook.domain.OrderStatus;
+import jpashop.jpabook.domain.*;
+import jpashop.jpabook.domain.item.Album;
+import jpashop.jpabook.domain.item.Movie;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.time.LocalDateTime;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -19,26 +19,35 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Delivery delivery = new Delivery();
-            delivery.setCity("seoul");
-            delivery.setStreet("가로수길");
-            delivery.setZipcode("110202");
-            delivery.setStatus(DeliveryStatus.DELIVERY);
+            Album album = new Album();
+            album.setName("BTS 정규 1집");
+            album.setArtist("방배동 살쾡이");
+            album.setEtc("60억 포켓몬스터");
+            album.setPrice(2000);
+            album.setStockQuantity(1000);
+            album.setCreatedDateTime(LocalDateTime.now());
+            album.setModifiedDateTime(LocalDateTime.now());
+            em.persist(album);
 
-            em.persist(delivery);
+            Movie movie = new Movie();
+            movie.setName("명량");
+            movie.setActor("최민식");
+            movie.setDirector("박점례");
+            movie.setStockQuantity(2000);
+            movie.setPrice(1000);
+            movie.setCreatedDateTime(LocalDateTime.now());
+            movie.setModifiedDateTime(LocalDateTime.now());
+            em.persist(movie);
 
-            Order order = new Order();
-            order.setStatus(OrderStatus.ORDER);
-
-            order.addDelivery(delivery);
-
-            em.persist(order);
-
-            Order findOrder = em.find(Order.class, order.getId());
-            System.out.println(findOrder.getDelivery().getStatus());
-
-            Delivery findDelivery = em.find(Delivery.class, delivery.getId());
-            System.out.println(findDelivery.getOrder().getStatus());
+            Movie movie2 = new Movie();
+            movie2.setName("명량");
+            movie2.setActor("최민식");
+            movie2.setDirector("박점례");
+            movie2.setStockQuantity(2000);
+            movie2.setPrice(1000);
+            movie2.setCreatedDateTime(LocalDateTime.now());
+            movie2.setModifiedDateTime(LocalDateTime.now());
+            em.persist(movie2);
 
             System.out.println("============");
             tx.commit();

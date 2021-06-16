@@ -1,13 +1,13 @@
 package jpashop.jpabook.domain;
 
-import jpashop.jpabook.domain.base.Base;
+import jpashop.jpabook.domain.base.BaseEntity;
 import jpashop.jpabook.domain.item.Item;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "ORDER_ITEM")
-public class OrderItem extends Base {
+public class OrderItem extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")
