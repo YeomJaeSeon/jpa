@@ -1,6 +1,7 @@
 package hellojpa;
 
 import hellojpa.base.BaseTable;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -20,23 +21,28 @@ public class JpaMain {
 
         try{
             Member member = new Member();
-            member.setCreatedBy("kim");
-            member.setCreatedTime(LocalDateTime.now());
-            member.setUsername("user1");
-
+            member.setUsername("member1");
             em.persist(member);
 
             em.flush();
             em.clear();
 
+            Member fakeProxy = em.getReference(Member.class, member.getId());
+            Member realEntity = em.find(Member.class, member.getId());
+            System.out.println("realEntity = " + realEntity.getClass());
+            System.out.println("fakeProxy = " + fakeProxy.getClass());
+
+            System.out.println("realEntity == fakeProxy : " + (realEntity == fakeProxy));
+
             System.out.println("//== commit ==//");
             tx.commit();
         }catch (Exception e){
             tx.rollback();
-
+            e.printStackTrace();
         }finally {
             em.close(); // entitymanager 사용다하면 꼭 닫아줘야함.
         }
         emf.close();
     }
+
 }

@@ -9,14 +9,9 @@ import java.util.List;
 import java.util.concurrent.locks.Lock;
 
 @Entity
-@SequenceGenerator(
-        name = "MEMBER_SEQUENCE_NAME",
-        sequenceName = "MEMBER_SEQ"
-)
 public class Member extends BaseTable {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE,
-    generator = "MEMBER_SEQUENCE_NAME")
+    @Id @GeneratedValue
     @Column(name = "MEMBER_ID")
     private Long id;
 
@@ -27,20 +22,10 @@ public class Member extends BaseTable {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
-    @OneToOne
-    @JoinColumn(name = "LOCKER_ID")
-    private Locker locker;
 
     @OneToMany(mappedBy = "member")
     private List<MemberProduct> products = new ArrayList<>();
 
-    public Locker getLocker() {
-        return locker;
-    }
-
-    public void setLocker(Locker locker) {
-        this.locker = locker;
-    }
 
     public Team getTeam() {
         return team;
