@@ -20,19 +20,31 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            Member member = new Member();
-            member.setUsername("member1");
-            em.persist(member);
+            Team teamA = new Team();
+            teamA.setName("teamA");
+            em.persist(teamA);
+
+            Team teamB = new Team();
+            teamB.setName("teamB");
+            em.persist(teamB);
+
+            Member member1 = new Member();
+            member1.setUsername("member1");
+            member1.setTeam(teamA);
+            em.persist(member1);
+
+            Member member2 = new Member();
+            member2.setUsername("member2");
+            member2.setTeam(teamB);
+            em.persist(member2);
+
 
             em.flush();
             em.clear();
 
-            Member fakeProxy = em.getReference(Member.class, member.getId());
-            Member realEntity = em.find(Member.class, member.getId());
-            System.out.println("realEntity = " + realEntity.getClass());
-            System.out.println("fakeProxy = " + fakeProxy.getClass());
+            List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
 
-            System.out.println("realEntity == fakeProxy : " + (realEntity == fakeProxy));
+
 
             System.out.println("//== commit ==//");
             tx.commit();
