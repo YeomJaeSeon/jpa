@@ -3,10 +3,8 @@ package hellojpa;
 import hellojpa.base.BaseTable;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.locks.Lock;
 
 @Entity
 public class Member extends BaseTable {
@@ -18,7 +16,7 @@ public class Member extends BaseTable {
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
