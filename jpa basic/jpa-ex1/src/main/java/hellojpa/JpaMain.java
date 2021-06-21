@@ -20,12 +20,23 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
+            Address address = new Address("seoul", "street", "11032");
             Member member = new Member();
             member.setUsername("memberA");
-            member.setHomeAddress(new Address("city", "street", "11032"));
-            member.setWorkPeriod(new Period(LocalDateTime.now(), LocalDateTime.now()));
-
+            member.setHomeAddress(address);
             em.persist(member);
+
+            Member member1 = new Member();
+            member1.setUsername("memberB");
+            member1.setHomeAddress(address);
+            em.persist(member1);
+
+            em.flush();
+            em.clear();
+
+            Member findMember = em.find(Member.class, member1.getId());
+            Address address1 = new Address("incheon", address.getStreet(), address.getZipcode());
+            findMember.setHomeAddress(address1);
 
             System.out.println("//==commit==//");
             tx.commit();
