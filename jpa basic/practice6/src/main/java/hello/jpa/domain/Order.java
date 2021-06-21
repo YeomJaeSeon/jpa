@@ -1,41 +1,48 @@
-package jpashop.jpabook.domain;
-
-import jpashop.jpabook.domain.base.BaseEntity;
+package hello.jpa.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static javax.persistence.CascadeType.*;
-import static javax.persistence.FetchType.*;
-
 @Entity
 @Table(name = "ORDERS")
-// 테이블이름을 ORDER로하면 예약어 ORDER과 충돌..
-public class Order extends BaseEntity {
+public class Order extends Base{
 
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToMany(mappedBy = "order", cascade = ALL)
-    List<OrderItem> orderItems = new ArrayList<>();
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne(fetch = LAZY, cascade = ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
 
-    private LocalDate Date;
+    private LocalDate orderDate;
 
-    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    public Order(){}
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public Delivery getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+    }
 
     public Long getId() {
         return id;
@@ -53,20 +60,12 @@ public class Order extends BaseEntity {
         this.member = member;
     }
 
-    public Delivery getDelivery() {
-        return delivery;
+    public LocalDate getOrderDate() {
+        return orderDate;
     }
 
-    public void setDelivery(Delivery delivery) {
-        this.delivery = delivery;
-    }
-
-    public LocalDate getDate() {
-        return Date;
-    }
-
-    public void setDate(LocalDate date) {
-        Date = date;
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
     }
 
     public OrderStatus getStatus() {

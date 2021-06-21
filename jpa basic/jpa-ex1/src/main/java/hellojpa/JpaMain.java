@@ -21,20 +21,29 @@ public class JpaMain {
 
         try{
             Child child1 = new Child();
+            child1.setName("child1");
             Child child2 = new Child();
+            child2.setName("child2");
 
             Parent parent = new Parent();
-            parent.addChild(child1);
-            parent.addChild(child2);
+            parent.setName("parent1");
+            child1.setParent(parent);
+            child2.setParent(parent);
 
             em.persist(parent);
+            em.persist(child1);
+            em.persist(child2);
 
-            em.flush();
-            em.clear();
+            System.out.println("==============");
+
+            Child findChild = em.find(Child.class, child1.getId());
+            System.out.println("findChild.getParent().getName() = " + findChild.getParent().getName());
 
             Parent findParent = em.find(Parent.class, parent.getId());
-            findParent.getChildList().remove(0);
-
+            for (Child child : findParent.getChildList()) {
+                System.out.println("child : " + child);
+            }
+            System.out.println("==============");
 
             System.out.println("//==commit==//");
             tx.commit();

@@ -1,16 +1,13 @@
-package jpashop.jpabook.domain;
+package hello.jpa.domain;
 
-import jpashop.jpabook.domain.base.BaseEntity;
-import jpashop.jpabook.domain.item.Item;
+import hello.jpa.domain.item.Item;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static javax.persistence.FetchType.*;
-
 @Entity
-public class Category extends BaseEntity {
+public class Category extends Base{
 
     @Id @GeneratedValue
     @Column(name = "CATEGORY_ID")
@@ -26,7 +23,7 @@ public class Category extends BaseEntity {
     )
     private List<Item> items = new ArrayList<>();
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PARENT_ID")
     private Category parent;
 

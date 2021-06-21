@@ -1,29 +1,24 @@
-package jpashop.jpabook.domain;
-
-import jpashop.jpabook.domain.base.BaseEntity;
+package hello.jpa.domain;
 
 import javax.persistence.*;
 
-import static javax.persistence.FetchType.*;
-
 @Entity
-public class Delivery extends BaseEntity {
+public class Delivery extends Base{
 
     @Id @GeneratedValue
     @Column(name = "DELIVERY_ID")
     private Long id;
 
-    @OneToOne(mappedBy = "delivery", fetch = LAZY)
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Order order;
 
     private String city;
 
+    private String street;
+
     private String zipcode;
 
-    @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
-
-    public Delivery(){}
 
     public Long getId() {
         return id;
@@ -47,6 +42,14 @@ public class Delivery extends BaseEntity {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getZipcode() {
