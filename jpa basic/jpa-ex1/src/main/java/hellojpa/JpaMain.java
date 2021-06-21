@@ -20,30 +20,12 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            Child child1 = new Child();
-            child1.setName("child1");
-            Child child2 = new Child();
-            child2.setName("child2");
+            Member member = new Member();
+            member.setUsername("memberA");
+            member.setHomeAddress(new Address("city", "street", "11032"));
+            member.setWorkPeriod(new Period(LocalDateTime.now(), LocalDateTime.now()));
 
-            Parent parent = new Parent();
-            parent.setName("parent1");
-            child1.setParent(parent);
-            child2.setParent(parent);
-
-            em.persist(parent);
-            em.persist(child1);
-            em.persist(child2);
-
-            System.out.println("==============");
-
-            Child findChild = em.find(Child.class, child1.getId());
-            System.out.println("findChild.getParent().getName() = " + findChild.getParent().getName());
-
-            Parent findParent = em.find(Parent.class, parent.getId());
-            for (Child child : findParent.getChildList()) {
-                System.out.println("child : " + child);
-            }
-            System.out.println("==============");
+            em.persist(member);
 
             System.out.println("//==commit==//");
             tx.commit();
