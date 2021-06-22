@@ -1,11 +1,16 @@
 package hellojpa;
 
 import hellojpa.base.BaseTable;
+import hellojpa.test.BookEntity;
+import hellojpa.test.Student;
+import hellojpa.test.SubjectBook;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.locks.Lock;
 
 public class JpaMain {
@@ -20,23 +25,36 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            Address address = new Address("seoul", "street", "11032");
-            Member member = new Member();
-            member.setUsername("memberA");
-            member.setHomeAddress(address);
-            em.persist(member);
+            Student student = new Student();
+            student.setName("염재선");
 
-            Member member1 = new Member();
-            member1.setUsername("memberB");
-            member1.setHomeAddress(address);
-            em.persist(member1);
+            student.getFavoriteClasses().add("체육");
+            student.getFavoriteClasses().add("음악");
+
+            BookEntity bookEntity = new BookEntity("이순신", LocalDate.now(), "징비록");
+            BookEntity bookEntity1 = new BookEntity("파브르", LocalDate.now(), "파브르 곤충기");
+            BookEntity bookEntity2 = new BookEntity("쉬운 DB설계", LocalDate.now(), "안드레아");
+
+            student.getBorrowedBooks().add(bookEntity);
+            student.getBorrowedBooks().add(bookEntity1);
+            student.getBorrowedBooks().add(bookEntity2);
+            bookEntity.setStudent(student);
+            bookEntity1.setStudent(student);
+            bookEntity2.setStudent(student);
+
+            student.setSubjectBook(new SubjectBook("물리가좋아", LocalDate.now(), "박막례"));
+
+            em.persist(student);
 
             em.flush();
             em.clear();
 
-            Member findMember = em.find(Member.class, member1.getId());
-            Address address1 = new Address("incheon", address.getStreet(), address.getZipcode());
-            findMember.setHomeAddress(address1);
+            System.out.println("==========START==========");
+            Student findStudent = em.find(Student.class, student.getId());
+
+            findStudent.getBorrowedBooks().remove(0);
+            
+
 
             System.out.println("//==commit==//");
             tx.commit();
