@@ -53,7 +53,7 @@ public class JpaMain {
             Student findStudent = em.find(Student.class, student.getId());
 
             findStudent.getBorrowedBooks().remove(0);
-            
+
 
 
             System.out.println("//==commit==//");
