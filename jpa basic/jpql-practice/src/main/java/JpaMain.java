@@ -1,5 +1,4 @@
-import jpql.Member;
-import jpql.Team;
+import jpql.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -21,20 +20,31 @@ public class JpaMain {
             member.setUsername("member1");
             member.setAge(10);
             member.setTeam(team);
+
             em.persist(member);
 
             Member member2 = new Member();
             member2.setUsername("member2");
             member2.setAge(12);
             member2.setTeam(team);
+
             em.persist(member2);
 
-            Integer singleResult = em.createQuery("select m.age from Member m where m.username = ?2", Integer.class)
-                    .setParameter(2, "member1")
-                    .getSingleResult();
 
-            System.out.println("singleResult = " + singleResult);
 
+            em.flush();
+            em.clear();
+
+
+
+            // MemberDTO 생성자호출.
+            List<MemberDTO> resultList = em.createQuery("select new jpql.MemberDTO(m.username, m.age) from Member m", MemberDTO.class)
+                    .getResultList();
+
+            for (MemberDTO memberDTO : resultList) {
+                System.out.println("memberDTO = " + memberDTO.getUsername());
+                System.out.println("memberDTO = " + memberDTO.getAge());
+            }
 
 
             System.out.println("//==commit==//");
