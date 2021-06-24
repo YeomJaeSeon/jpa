@@ -21,7 +21,7 @@ public class Member {
     private String username;
 
     @Embedded
-    private Address homeAddress;
+    private Address address;
 
     @ElementCollection
     @CollectionTable(name = "FAVORITE_FOOD", joinColumns =
@@ -51,14 +51,6 @@ public class Member {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Address getHomeAddress() {
-        return homeAddress;
-    }
-
-    public void setHomeAddress(Address homeAddress) {
-        this.homeAddress = homeAddress;
     }
 
     public Set<String> getFavoriteFoods() {

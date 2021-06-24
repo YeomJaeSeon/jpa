@@ -1,17 +1,10 @@
 package hellojpa;
 
-import hellojpa.base.BaseTable;
-import hellojpa.test.BookEntity;
-import hellojpa.test.Student;
-import hellojpa.test.SubjectBook;
-import org.hibernate.Hibernate;
-
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.locks.Lock;
 
 public class JpaMain {
     public static void main(String[] args) {
@@ -25,36 +18,10 @@ public class JpaMain {
         tx.begin(); // db트랜잭션 시작
 
         try{
-            Student student = new Student();
-            student.setName("염재선");
-
-            student.getFavoriteClasses().add("체육");
-            student.getFavoriteClasses().add("음악");
-
-            BookEntity bookEntity = new BookEntity("이순신", LocalDate.now(), "징비록");
-            BookEntity bookEntity1 = new BookEntity("파브르", LocalDate.now(), "파브르 곤충기");
-            BookEntity bookEntity2 = new BookEntity("쉬운 DB설계", LocalDate.now(), "안드레아");
-
-            student.getBorrowedBooks().add(bookEntity);
-            student.getBorrowedBooks().add(bookEntity1);
-            student.getBorrowedBooks().add(bookEntity2);
-            bookEntity.setStudent(student);
-            bookEntity1.setStudent(student);
-            bookEntity2.setStudent(student);
-
-            student.setSubjectBook(new SubjectBook("물리가좋아", LocalDate.now(), "박막례"));
-
-            em.persist(student);
-
-            em.flush();
-            em.clear();
-
-            System.out.println("==========START==========");
-            Student findStudent = em.find(Student.class, student.getId());
-
-            findStudent.getBorrowedBooks().remove(0);
-
-
+            String sql =
+            "SELECT MEMBER_ID FROM MEMBER WHERE NAME = 'kim''";
+            List<Member> resultList =
+                    em.createNativeQuery(sql, Member.class).getResultList();
 
             System.out.println("//==commit==//");
             tx.commit();
