@@ -12,29 +12,38 @@ public class JpaMain {
         tx.begin();
 
         try{
-            for(int i = 0; i < 100; i++){
-                Member member = new Member();
-                member.setUsername("member" + i);
-                member.setAge(i);
-                em.persist(member);
-            }
+//            Member member = new Member();
+//            member.setUsername("호나우두");
+//            member.setAge(30);
+//
+//            em.persist(member);
+//
+//            Product product = new Product();
+//            product.setName("호나우두");
+//            product.setPrice(2000);
+//
+//            em.persist(product);
 
+            Team team = new Team();
+            team.setName("teamA");
+            em.persist(team);
+
+            Member member = new Member();
+            member.setUsername("teamA");
+            member.setAge(20);
+            member.changeTeam(team);
+            em.persist(member);
 
             em.flush();
             em.clear();
 
             System.out.println("//====clear====//");
 
-            List<Member> members = em.createQuery("select m from Member m order by m.age desc", Member.class)
-                    .setFirstResult(1)
-                    .setMaxResults(10)
+            String jpql = "select m from Member m left join Team t on m.username = t.name";
+            List<Member> members = em.createQuery(jpql, Member.class)
                     .getResultList();
 
-            System.out.println(members.size());
-            for (Member member1 : members) {
-                System.out.println(member1);
-            }
-
+            System.out.println("members.size() = " + members.size());
 
             System.out.println("//==commit==//");
             tx.commit();
@@ -46,4 +55,5 @@ public class JpaMain {
         }
         emf.close();
     }
+
 }
