@@ -3,6 +3,10 @@ package jpql;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(
+        name = "Member.findByUsername",
+        query = "select m from Member m where m.username = :username"
+)
 public class Member {
 
     @Id @GeneratedValue
@@ -13,7 +17,7 @@ public class Member {
 
     private int age;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 

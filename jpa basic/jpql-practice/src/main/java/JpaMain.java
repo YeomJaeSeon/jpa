@@ -1,8 +1,6 @@
 import jpql.*;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class JpaMain {
@@ -21,6 +19,10 @@ public class JpaMain {
             Team teamB = new Team();
             teamB.setName("맨유");
             em.persist(teamB);
+
+            Team teamC = new Team();
+            teamC.setName("토트넘");
+            em.persist(teamC);
 
             Member member1 = new Member();
             member1.setUsername("램파드");
@@ -43,21 +45,19 @@ public class JpaMain {
             member3.changeTeam(teamB);
             em.persist(member3);
 
-            em.flush();
-            em.clear();
-            System.out.println("//====clear====//");
+            Member member4= new Member();
+            member4.setUsername("손흥민");
+            member4.setAge(30);
+            member4.setMemberType(MemberType.ADMIN);
+            member4.changeTeam(teamC);
+            em.persist(member4);
 
-            String query = "select t from Team t join t.members";
+            int updateCount = em.createQuery("update Member m set m.age = 1")
+                    .executeUpdate();
+            //모든 회원의 나이 1살로 변경
 
-            List<Team> result = em.createQuery(query, Team.class)
-                    .getResultList();
-
-            for (Team o : result) {
-                System.out.println("o = " + o.getName() + ", team : " + o.getMembers().size());
-                for (Member member : o.getMembers()) {
-                    System.out.println("member.getUsername() = " + member.getUsername());
-                }
-            }
+            Member findMember = em.find(Member.class, member1.getId());
+            System.out.println("findMember.getAge() = " + findMember.getAge());
 
             System.out.println("//==commit==//");
             tx.commit();
