@@ -2,20 +2,16 @@ package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Member;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-@RequiredArgsConstructor // 이렇게 줄일수도있따. spring data jpa를 사용하면
-//@PersistenceContext사용안하고
+@RequiredArgsConstructor
 public class MemberRepository {
 
     private final EntityManager em;
-    //스프링이 엔티티메니져 만들어서 injection해준다.
 
     public void save(Member member){
         em.persist(member);
