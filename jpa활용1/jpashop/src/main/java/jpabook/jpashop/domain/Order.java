@@ -14,7 +14,6 @@ import static javax.persistence.FetchType.*;
 @Table(name = "ORDERS")
 @Getter @Setter
 public class Order {
-
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
@@ -50,4 +49,44 @@ public class Order {
         this.delivery = delivery;
         delivery.setOrder(this);
     }
+
+    //==생성 메서드==//
+    // 연관관계가 복잡, Member도필요, Deliver, OrderItem 필요... - 이럴땐 생성메서드 있는것이 좋다
+    public static Order createOrder(Member member, Delivery delivery, OrderItem ...orderItems){
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        for (OrderItem orderItem : orderItems) {
+            order.addOrderItem(orderItem);
+        }
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+        return order;
+    }
+
+    //==비즈니스 로직==//
+    /**
+     * 주문 취소
+     */
+    public void cancel(){
+        if(delivery.getStatus() == DeliveryStatus.COMP){
+            throw new IllegalStateException("이미 배송 완료된 상품은 취소가 불가능합니다.");
+        }
+
+        this.setStatus(OrderStatus.CANCEL);
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
+    }
+
+    //==조회 로직==// - 계산할때 사용됨
+    /**
+     * 전체 주문가격 조회
+     */
+    public int getTotalPrice(){
+        return orderItems.stream()
+                .mapToInt(OrderItem::getToTalPrice)
+                .sum();
+    }
+
 }
