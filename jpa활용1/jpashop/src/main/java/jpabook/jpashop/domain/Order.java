@@ -1,6 +1,8 @@
 package jpabook.jpashop.domain;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -13,6 +15,7 @@ import static javax.persistence.FetchType.*;
 @Entity
 @Table(name = "ORDERS")
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
@@ -33,6 +36,9 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status; // 주문상태 : ORDER, CANCEL
+
+    // protected로 생성자로 객체생성막기 -> 롬복으로 줄일수있음 -> 이런식으로 코드를 제약하는 방식으로 만드는게 유지보수를 쉽게만든다!
+//    protected Order() {}
 
     //==연관관계 편의메서드==// - 양쪽어디에 위치할까? 좀더 핵심적인 역할을하는곳에 위치하는게좋다
     public void setMember(Member member){
@@ -73,7 +79,7 @@ public class Order {
             throw new IllegalStateException("이미 배송 완료된 상품은 취소가 불가능합니다.");
         }
 
-        this.setStatus(OrderStatus.CANCEL);
+        this.setStatus(OrderStatus.CANCEL); // dirty checking으로 update 쿼리자동으로나간다.
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }
