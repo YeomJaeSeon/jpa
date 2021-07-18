@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 import java.util.List;
 
 @Slf4j
@@ -62,16 +63,17 @@ public class ItemController {
     }
 
     @PostMapping("/items/{itemId}/edit")
-    public String update(@ModelAttribute ItemForm itemForm){
-        Book book = new Book();
-        book.setId(itemForm.getId());
-        book.setName(itemForm.getName());
-        book.setPrice(itemForm.getPrice());
-        book.setStockQuantity(itemForm.getStockQuantity());
-        book.setAuthor(itemForm.getAuthor());
-        book.setIsbn(itemForm.getIsbn());
+    public String update(@PathVariable Long itemId ,@ModelAttribute ItemForm itemForm){
+//        Book book = new Book();
+//        book.setId(itemForm.getId());
+//        book.setName(itemForm.getName());
+//        book.setPrice(itemForm.getPrice());
+//        book.setStockQuantity(itemForm.getStockQuantity());
+//        book.setAuthor(itemForm.getAuthor());
+//        book.setIsbn(itemForm.getIsbn());
+        //컨트롤러에서 애매하게 엔티티생성 X
 
-        itemService.saveItem(book);
+        itemService.updateItem(itemId, itemForm.getName(), itemForm.getPrice(), itemForm.getStockQuantity());
 
         return "redirect:/items";
     }

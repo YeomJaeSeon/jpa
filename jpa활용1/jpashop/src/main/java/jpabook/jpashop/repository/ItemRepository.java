@@ -14,11 +14,12 @@ public class ItemRepository {
     private final EntityManager em;
 
     public void save(Item item){
-        if(item.getId() == null){
-            em.persist(item);
-        }else{ // 이미 DB에 존재하는 녀석이었꾸나, id가있는걸보닌까 - 즉 업데이트!
-            em.merge(item);
-        }
+        em.persist(item);
+//        if(item.getId() == null){
+//            em.persist(item);
+//        }else{ // 이미 DB에 존재하는 녀석이었꾸나, id가있는걸보닌까 - 즉 업데이트!
+//            em.merge(item);
+//        }
     }
 
     public Item findOne(Long id){
