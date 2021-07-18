@@ -27,7 +27,7 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	// sql 쿼리 파라미터 확인가능 (System.out 출력으로)
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
 }

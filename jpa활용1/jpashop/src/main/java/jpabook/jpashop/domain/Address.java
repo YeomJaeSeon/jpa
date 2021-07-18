@@ -6,7 +6,7 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 @Getter
-public abstract class Address {
+public class Address {
     private String city;
     private String street;
     private String zipcode;
