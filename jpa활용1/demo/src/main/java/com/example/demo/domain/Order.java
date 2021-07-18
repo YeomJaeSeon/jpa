@@ -19,7 +19,6 @@ import static lombok.AccessLevel.*;
 @Getter @Setter
 @NoArgsConstructor(access = PROTECTED)
 public class Order {
-
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
     private Long id;
@@ -38,7 +37,7 @@ public class Order {
     private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus;
+    private OrderStatus status;
 
     //==연관관계 편의 메서드==//
     public void addMember(Member member){
@@ -65,7 +64,7 @@ public class Order {
             order.addOrderItem(orderItem);
         }
 
-        order.setOrderStatus(OrderStatus.ORDER);
+        order.setStatus(OrderStatus.ORDER);
         order.setOrderDate(LocalDateTime.now());
 
         return order;
@@ -78,7 +77,7 @@ public class Order {
             throw new IllegalStateException("이미 배송이 완료되었습니다.");
         }
 
-        setOrderStatus(OrderStatus.CANCEL);
+        setStatus(OrderStatus.CANCEL);
         for (OrderItem orderItem : orderItems) {
             orderItem.cancel();
         }

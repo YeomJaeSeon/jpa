@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import com.example.demo.domain.item.Book;
 import com.example.demo.domain.item.Item;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -14,11 +15,7 @@ public class ItemRepository {
     private final EntityManager em;
 
     public void save(Item item){
-        if(item.getId() == null){
-            em.persist(item);
-        }else{
-            em.merge(item);
-        }
+        em.persist(item);
     }
 
     public Item findOne(Long id){
